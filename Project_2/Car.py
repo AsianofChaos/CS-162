@@ -1,3 +1,6 @@
+'''car class'''
+
+
 class car:
     def __init__(
         self,
@@ -8,7 +11,7 @@ class car:
         new_engine_displacement = 2.0,
         new_engine_displacement_unit = "L",
         new_engine_number_pistons = 4,
-        new_transmission = "Automatic CVT",
+        new_transmission = "Automatic",
         new_ignition_on = False
         ): 
 
@@ -47,66 +50,6 @@ class car:
         indv_piston_diplacement = int(self.displacement) / int(self.num_pistons)
 
         return indv_piston_diplacement
-
-
-
-
-
-user_input = "-1"
-first_run = True
-while user_input != "0":
-#user input menu display
-    invalid_input = True
-    while invalid_input == True:
-        user_input = input(
-            "0: Quit\n" \
-            "1: Input vehical specifications\n" \
-            "2: Display vehical specifications\n" \
-            "3: toggle ingition power\n" \
-            "Enter Input:"
-        )
-        if user_input not in ["0", "1", "2", "3"]:
-            print("Invalid input")
-        else:
-            invalid_input = False 
-
-
-    #runs requested input
-    if first_run:
-        my_car = None
-
-    if user_input == "1":
-        new_vehicle_name = input(f"What is the name of the car\n")
-        new_car_make = input(f"\nWhat is the make of the car?\n")
-        new_car_model = input(f"\nWhat is the model of the car?\n")
-        
-        my_car = car(new_vehicle_name, new_car_make, new_car_model)
-
-    elif user_input == "2":
-        if my_car == None:
-            print("No car exists.")
-        else:
-            print(my_car)
-
-    elif user_input == "3":
-        if my_car != None:
-            my_car.toggle_ignition()
-            if my_car.ignition_on:
-                print("Ignition on.")
-            else:
-                print("Ignition off.")
-        else:
-            print("no car exits")
-    #quit
-    elif user_input == "0":
-        pass
-
-        
-    first_run = False
-
-print("end")
-
-
 
 
 
