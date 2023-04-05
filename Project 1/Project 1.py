@@ -1,3 +1,4 @@
+
 class car:
     def __init__(
         self,
@@ -8,8 +9,9 @@ class car:
         new_engine_displacement = 2.0,
         new_engine_displacement_unit = "L",
         new_engine_number_pistons = 4,
-        new_transmission = "Automatic CVT",
-        new_ignition_on = False
+        new_transmission = "Automatic",
+        new_ignition_on = False,
+        new_door_state = False
         ): 
 
         self.name = new_name
@@ -21,10 +23,14 @@ class car:
         self.num_pistons = new_engine_number_pistons
         self.transmission = new_transmission
         self.ignition_on = new_ignition_on
+        self.door_open = new_door_state
     
     
     def toggle_ignition(self):
         self.ignition_on = not self.ignition_on
+    
+    def toggle_door_state(self):
+        self.door_open = not self.door_open
 
 
     def __str__(self):
@@ -39,7 +45,8 @@ class car:
             f"\tself.displacement_unit: {self.displacement_unit}\n" \
             f"\tself.num_pistons: {self.num_pistons}\n" \
             f"\tself.transmission: {self.transmission}\n" \
-            f"\tself.ingnition_on: {self.ignition_on}" 
+            f"\tself.ingnition_on: {self.ignition_on}\n"  \
+            f"\tself.door_open: {self.door_open}" 
         return result 
 
     def indv_piston_diplacement(self):
@@ -63,9 +70,10 @@ while user_input != "0":
             "1: Input vehical specifications\n" \
             "2: Display vehical specifications\n" \
             "3: toggle ingition power\n" \
+            "4: toggle doors\n" \
             "Enter Input:"
         )
-        if user_input not in ["0", "1", "2", "3"]:
+        if user_input not in ["0", "1", "2", "3", "4"]:
             print("Invalid input")
         else:
             invalid_input = False 
@@ -97,6 +105,16 @@ while user_input != "0":
                 print("Ignition off.")
         else:
             print("no car exits")
+    elif user_input == "4":
+        if my_car != None:
+            my_car.toggle_door_state()
+            if my_car.door_open:
+                print("Doors open.")
+            else:
+                print("Doors closed.")
+        else:
+            print("no car exits")
+    
     #quit
     elif user_input == "0":
         pass

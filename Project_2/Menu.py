@@ -4,12 +4,11 @@ import Car
 
 def main():
 
-
     # menu
     user_input = "-1"
     first_run = True
     while user_input != "0":
-    #user input menu display
+    # user input menu display
         invalid_input = True
         while invalid_input == True:
             user_input = input(
@@ -17,13 +16,14 @@ def main():
                 "1: Input vehical specifications\n" \
                 "2: Display vehical specifications\n" \
                 "3: toggle ingition power\n" \
+                "4: Save to file\n" \
+                "5: Read from file\n" \
                 "Enter Input:"
             )
-            if user_input not in ["0", "1", "2", "3"]:
+            if user_input not in ["0", "1", "2", "3", "4", "5"]:
                 print("Invalid input")
             else:
                 invalid_input = False 
-
 
         # runs requested input
         if first_run:
@@ -59,7 +59,30 @@ def main():
                     print("Ignition off.")
             else:
                 print("no car exits")
-        #quit
+        # quit
+        elif user_input == "4":
+            # Writes the currect opject values to a file
+            try:
+                with open("Car.txt", "w") as output_file:
+                    output_file.write(f"{my_car}")
+            except:
+                print("error")
+        elif user_input == "5":
+            # Reades the object values from a file
+            try:
+                with open("Car.txt", "r") as input_file:
+                    raw_inputs = input_file.readlines()
+                    for line in raw_inputs:
+                        splitline = line.split(": ")
+                        print(f"split_line: {splitline}")
+                    #print(raw_input)
+
+
+
+            except FileNotFoundError as fnfe:
+                print("No file found.")
+        
+        
         elif user_input == "0":
             pass
 

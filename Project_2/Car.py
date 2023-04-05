@@ -4,16 +4,16 @@
 class car:
     def __init__(
         self,
-        new_name = "no name given",
-        new_make = "Honda",
-        new_model = "Civic",
-        new_engine_horsepower = 158,
-        new_engine_displacement = 2.0,
-        new_engine_displacement_unit = "L",
-        new_engine_number_pistons = 4,
-        new_transmission = "Automatic",
-        new_ignition_on = False
-        ): 
+        new_name="no name given",
+        new_make="Honda",
+        new_model="Civic",
+        new_engine_horsepower=158,
+        new_engine_displacement=2.0,
+        new_engine_displacement_unit="L",
+        new_engine_number_pistons=4,
+        new_transmission="Automatic",
+        new_ignition_on=False
+        ):
 
         self.name = new_name
         self.make = new_make
@@ -24,8 +24,9 @@ class car:
         self.num_pistons = new_engine_number_pistons
         self.transmission = new_transmission
         self.ignition_on = new_ignition_on
-    
-    
+
+
+
     def toggle_ignition(self):
         self.ignition_on = not self.ignition_on
 
@@ -50,7 +51,3 @@ class car:
         indv_piston_diplacement = int(self.displacement) / int(self.num_pistons)
 
         return indv_piston_diplacement
-
-
-
-
